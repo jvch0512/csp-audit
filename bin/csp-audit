@@ -1,0 +1,4 @@
+#!/bin/sh
+# Launcher: runs the compiled Scala program.
+dir=$(cd "$(dirname "$0")/.." && pwd)
+exec scala -cp "$dir/build" csp.Main "$@"

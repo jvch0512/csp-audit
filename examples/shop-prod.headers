@@ -1,0 +1,10 @@
+HTTP/2 200
+content-type: text/html; charset=utf-8
+server: nginx/1.18.0
+x-powered-by: PHP/7.4.3
+set-cookie: PHPSESSID=abc123; path=/
+set-cookie: prefs=dark; Secure; HttpOnly; Path=/
+access-control-allow-origin: *
+access-control-allow-credentials: true
+strict-transport-security: max-age=300
+content-security-policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.example.test

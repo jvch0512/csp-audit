@@ -1,0 +1,7 @@
+HTTP/2 200
+content-type: text/html
+strict-transport-security: max-age=63072000; includeSubDomains
+content-security-policy: default-src 'none'; script-src 'self' 'nonce-r4nd0m'; style-src 'self'; frame-ancestors 'none'; base-uri 'none'
+x-content-type-options: nosniff
+referrer-policy: strict-origin-when-cross-origin
+set-cookie: sid=9; Secure; HttpOnly; SameSite=Lax; Path=/

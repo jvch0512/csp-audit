@@ -1,0 +1,27 @@
+3 files, 13 findings
+HIGH     HDR009 shop-prod.headers:7
+         Access-Control-Allow-Origin * with credentials allowed
+HIGH     HDR002 shop-prod.headers:10
+         script sources allow 'unsafe-inline'
+MEDIUM   HDR007 shop-prod.headers:5
+         cookie PHPSESSID lacks secure and httponly
+MEDIUM   HDR004 shop-prod.headers:9
+         HSTS max-age is 300: use at least 15552000 (6 months)
+MEDIUM   HDR003 shop-prod.headers:10
+         no frame-ancestors in CSP and no X-Frame-Options: the page can be framed
+MEDIUM   HDR001 staging.txt:3
+         CSP is report-only: nothing is blocked
+LOW      HDR005 shop-prod.headers:1
+         no X-Content-Type-Options: nosniff
+LOW      HDR006 shop-prod.headers:1
+         no Referrer-Policy header
+LOW      HDR008 shop-prod.headers:3
+         Server discloses a version: nginx/1.18.0
+LOW      HDR008 shop-prod.headers:4
+         X-Powered-By discloses a version: PHP/7.4.3
+LOW      HDR007 shop-prod.headers:6
+         cookie prefs has no SameSite attribute
+LOW      HDR005 staging.txt:1
+         no X-Content-Type-Options: nosniff
+LOW      HDR006 staging.txt:1
+         no Referrer-Policy header
