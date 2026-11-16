@@ -2,6 +2,8 @@
 
 csp-audit reads HTTP response headers saved from `curl -sI`, browser dev tools or a proxy, and checks the ones that decide how much a browser will protect your users: a Content-Security-Policy that really restricts scripts, HSTS with a useful lifetime, cookie flags, `nosniff`, framing rules, a safe CORS setup and headers that announce server versions. It works on files, so it can run in CI on captured responses without touching the live site.
 
+![Terminal demo of csp-audit on its sample data](docs/demo.svg)
+
 **Live demo:** https://jvch0512.github.io/csp-audit/ (Synthetic captures.)
 
 Scala 2 (JVM), standard library only. The demo page is rendered from the tool's `--tsv` output by `scripts/site.py` (Python 3, only needed to regenerate the page).
@@ -50,3 +52,13 @@ make test    # 57 checks, incl. 3000-case fuzzing and CLI exit codes
 ```
 
 MIT.
+
+## Code scanning (SARIF)
+
+`scripts/tsv2sarif.py` converts the `--tsv` output into SARIF 2.1.0, so findings show up in GitHub code scanning:
+
+```sh
+bin/csp-audit examples --tsv 2>/dev/null | python3 scripts/tsv2sarif.py --tool csp-audit --prefix examples > results.sarif
+```
+
+Upload `results.sarif` with `github/codeql-action/upload-sarif`. Severities map to SARIF levels (critical and high to error, medium to warning, low and info to note) and to a `security-severity` score.
